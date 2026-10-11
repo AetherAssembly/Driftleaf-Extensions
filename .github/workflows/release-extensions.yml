@@ -1,0 +1,47 @@
+name: Release extensions
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Publish extension files
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: Check extension files
+        run: |
+          for file in extensions/*.js; do
+            node --check "$file"
+          done
+      - name: Prepare release assets and checksums
+        run: |
+          mkdir release-assets
+          cp extensions/*.js release-assets/
+          cd release-assets
+          sha256sum *.js > checksums.txt
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v3
+        with:
+          name: Driftleaf Extensions ${{ github.ref_name }}
+          body: |
+            Download an individual `.js` file below, then import that file from Driftleaf's Extensions screen. ZIP imports are not supported.
+
+            `checksums.txt` contains SHA-256 checksums for each extension file.
+
+            See the [extension catalog](https://github.com/AetherAssembly/Driftleaf-Extensions#available-extensions) for descriptions and the [extension guide](https://github.com/AetherAssembly/Driftleaf/blob/main/docs/EXTENSIONS.md) for more information.
+          files: |
+            release-assets/*.js
+            release-assets/checksums.txt
+          fail_on_unmatched_files: true
+          prerelease: ${{ contains(github.ref_name, '-') }}

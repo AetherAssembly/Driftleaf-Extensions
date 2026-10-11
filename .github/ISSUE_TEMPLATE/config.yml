@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Driftleaf extension development guide
+    url: https://github.com/AetherAssembly/Driftleaf/blob/main/docs/EXTENSIONS.md
+    about: Read about the extension API and how extensions work.

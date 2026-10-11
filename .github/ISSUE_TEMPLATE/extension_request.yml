@@ -1,0 +1,29 @@
+name: Suggest an extension
+description: Suggest a new extension or an improvement to an existing one.
+title: "[Suggestion]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please describe the idea without including private notes or other personal vault data.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What would you like to do?
+      description: Describe the task or problem this extension would help with.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: What should the extension do?
+      description: Describe the behavior you have in mind.
+    validations:
+      required: true
+  - type: textarea
+    id: access
+    attributes:
+      label: What data would it need?
+      description: For example, note titles, note contents, links, or a selected database.
+    validations:
+      required: false

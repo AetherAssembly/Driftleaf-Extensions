@@ -1,0 +1,47 @@
+name: Report an extension problem
+description: Tell us what went wrong while using an extension.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please do not include private notes, database contents, or other personal vault data.
+  - type: input
+    id: extension
+    attributes:
+      label: Extension
+      description: Which extension is affected?
+      placeholder: Daily Notes
+    validations:
+      required: true
+  - type: input
+    id: driftleaf-version
+    attributes:
+      label: Driftleaf version
+      description: Which version of Driftleaf are you using?
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: What happened?
+      description: Include the steps needed to reproduce the problem.
+      placeholder: |
+        1. Open...
+        2. Select...
+        3. See...
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional context
+      description: Share any other details that may help us reproduce the issue. Redact personal information.
+    validations:
+      required: false
