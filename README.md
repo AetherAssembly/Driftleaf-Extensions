@@ -7,8 +7,8 @@ databases.
 
 Open the **Extensions** gallery in Driftleaf to browse available extensions.
 Choose an extension to preview its source, then install it from the gallery.
-Extensions run as code, so review the preview and grant only the vault access
-you are comfortable sharing. Installed extensions start without vault
+Extensions run as code, so review the preview and grant only the branch access
+you are comfortable sharing. Installed extensions start without branch
 permissions; they can only read data after you explicitly grant access.
 
 You can also download an individual `.js` file from the
