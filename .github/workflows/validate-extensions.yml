@@ -5,23 +5,30 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: validate-extensions-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
-  syntax:
-    name: Check JavaScript syntax
+  validate:
+    name: Validate extension files
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: Check out repository
         uses: actions/checkout@v7
+        with:
+          persist-credentials: false
       - name: Set up Node.js
         uses: actions/setup-node@v7
         with:
           node-version: 22
-      - name: Check extension files
-        run: |
-          for file in extensions/*.js; do
-            node --check "$file"
-          done
+      - name: Run validator tests
+        run: node --test .github/scripts/validate-extensions.test.mjs
+      - name: Validate extension files
+        run: node .github/scripts/validate-extensions.mjs extensions

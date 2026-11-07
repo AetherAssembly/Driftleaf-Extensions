@@ -19,11 +19,8 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: 22
-      - name: Check extension files
-        run: |
-          for file in extensions/*.js; do
-            node --check "$file"
-          done
+      - name: Validate extension files
+        run: node .github/scripts/validate-extensions.mjs extensions
       - name: Prepare release assets and checksums
         run: |
           mkdir release-assets
