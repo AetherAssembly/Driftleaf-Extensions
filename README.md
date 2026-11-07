@@ -27,6 +27,7 @@ other tools.
 | **Link Map** | Summarizes links between notes and mentions that are not linked yet. |
 | **Database Dashboard** | Shows row and property counts for databases you have shared with it. |
 | **Task Overview** | Finds unchecked Markdown checklist items in accessible notes. |
+| **Orphan Notes** | Lists notes with no links in or out and no unlinked mentions, so you can spot pages that still need connecting. |
 
 Extensions only work with the notes and databases made available through their
 granted permissions. For help or to suggest an extension, [open an issue](https://github.com/AetherAssembly/Driftleaf-Extensions/issues/new/choose).
