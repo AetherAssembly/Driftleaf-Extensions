@@ -28,6 +28,12 @@ other tools.
 | **Database Dashboard** | Shows row and property counts for databases you have shared with it. |
 | **Task Overview** | Finds unchecked Markdown checklist items in accessible notes. |
 | **Orphan Notes** | Lists notes with no links in or out and no unlinked mentions, so you can spot pages that still need connecting. |
+| **Recently Edited** | Lists accessible notes ordered by their last edited time. |
+| **Folder Summary** | Counts accessible notes and databases in each folder. |
+| **Broken Links** | Finds unresolved `[[wiki links]]` in accessible notes. |
+| **Checklist Progress** | Summarizes completed and incomplete Markdown checklist items. |
+| **Duplicate Titles** | Finds accessible notes that share the same title. |
+| **Database Relations** | Lists relation and rollup properties in shared databases. |
 
 Extensions only work with the notes and databases made available through their
 granted permissions. For help or to suggest an extension, [open an issue](https://github.com/AetherAssembly/Driftleaf-Extensions/issues/new/choose).
